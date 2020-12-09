@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер валют</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+
+<body>
+    <div class="main">
+        <h1> Calculate currency <br> Exchange rates</h1>
+        <form action="">
+            <div>
+                <label for="">Currency</label>
+                <select id="currency">
+                    <option value="80.55">USD</option>
+                    <option value="0.1750">KZT</option>
+                    <option value="1.0330">RUB</option>
+                    <option value="94.90">EUR</option>
+                    <option value="11.20">CNY</option>=
+                    <option value="100.00">GBP</option>=
+                </select>
+                <div>
+                    <label for="">Сумма денег:</label>
+                    <input placeholder="" type="number" id="moneyAmount">
+                    <i class="fas fa-arrow-circle-right"></i>
+                    <span id="currentCurrency"></span>
+                    <input placeholder="KGS" type="number" id="targetMoneyAmount">
+                </div>
+            </div>
+        </form>
+        <div id="">
+            <span id="result"></span>
+        </div>
+    </div>
+    <style>
+        html body{
+            padding: 0;
+            margin: 0;
+        }
+        .main{
+            background-image: url('https://www.akchabar.kg/media/news/1f50f877-128a-4058-ab8b-803c436ee6c1.jpg.850x445_q82_crop.jpg');
+            background-repeat: no-repeat;
+            height: 40vh;
+        }
+        h1{
+            padding-left: 10%;
+        }
+        label{
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        let moneyAmountEl = document.getElementById('moneyAmount')
+        let currencyEl = document.getElementById('currency')
+        let targetMoneyAmountEl = document.getElementById('targetMoneyAmount')
+        let resultEl = document.getElementById('result')
+
+        moneyAmountEl.addEventListener('input', convertCurrency)
+
+        function convertCurrency() {
+            let moneyAmount = parseFloat(moneyAmountEl.value)
+            let currency = parseFloat(currencyEl.value)
+            let result = moneyAmount * currency
+            targetMoneyAmountEl.value = result
+        }
+        currencyEl.addEventListener('change', currencyChange)
+        let currentCurrency = document.getElementById('currentCurrency')
+        function oncurrencyChange(){
+            currentCurrency.innerHTML = currencyEl.options[currencyEl,selectIndex].text
+            currentCurrency()
+        }
+        currencyChange()
+    </script>
+</body>
+
+</html>
